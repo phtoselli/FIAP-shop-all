@@ -17,11 +17,50 @@ O fabricante deve conter o nome, endereço e um telefone de contato.
 import java.text.DateFormat;
 
 class Product {
-    String name;
-    Float price;
-    String description;
-    String stock;
-    String facturer;
+    private String _name;
+    private Double _price;
+    private String _description;
+    private Number _stock;
+
+    public Product(String nome, double price, String description, Number stock) {
+        this._name = nome;
+        this._price = price;
+        this._description = description;
+        this._stock = stock;
+    }
+
+    public String getName() {
+        return _name;
+    }
+
+    public void setName(String name) {
+        this._name = name;
+    }
+
+    public double getPrice() {
+        return _price;
+    }
+
+    public void setPrice(double price) {
+        this._price = price;
+    }
+
+    public String getDescription() {
+        return _description;
+    }
+
+    public void setDescription(String description) {
+        this._description = description;
+    }
+
+    public Number getStock() {
+        return _stock;
+    }
+
+    public void setStock(int stock) {
+        this._stock = stock;
+    }
+
 }
 
 class facturer {
