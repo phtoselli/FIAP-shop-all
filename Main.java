@@ -21,6 +21,7 @@ class Product {
     private Double _price;
     private String _description;
     private Number _stock;
+    private String _facturer;
 
     public Product(String nome, double price, String description, Number stock) {
         this._name = nome;
