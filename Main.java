@@ -1,33 +1,54 @@
-/*
-Cadastro de Produto Eletrônico:
-modelo.
+import java.time.LocalDate;
 
-Cadastro de Produto de Vestuário:
-tamanho, cor e material.
+class Facturer {
+    private String _name;
+    private String _address;
+    private String _telephone;
 
-Cadastro de Produto Alimentício:
-data de validade e ingredientes.
+    public Facturer(String name, String address, String telephone) {
+        this._name = name;
+        this._address = address;
+        this._telephone = telephone;
+    }
 
-Cadastro de Bebida:
-data de validade, ingredientes, alcoólico (se é ou não) e volume.
+    public String getName() {
+        return _name;
+    }
 
-O fabricante deve conter o nome, endereço e um telefone de contato.
-*/
+    public void setName(String name) {
+        this._name = name;
+    }
 
-import java.text.DateFormat;
+    public String getAddress() {
+        return _address;
+    }
+
+    public void setAddress(String address) {
+        this._address = address;
+    }
+
+    public String getTelephone() {
+        return _telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this._telephone = telephone;
+    }
+}
 
 class Product {
     private String _name;
-    private Double _price;
+    private double _price;
     private String _description;
-    private Number _stock;
-    private String _facturer;
+    private int _stock;
+    private Facturer _facturer;
 
-    public Product(String nome, double price, String description, Number stock) {
-        this._name = nome;
+    public Product(String name, double price, String description, int stock, Facturer facturer) {
+        this._name = name;
         this._price = price;
         this._description = description;
         this._stock = stock;
+        this._facturer = facturer;
     }
 
     public String getName() {
@@ -62,34 +83,141 @@ class Product {
         this._stock = stock;
     }
 
-}
+    public Facturer getFabricante() {
+        return _facturer;
+    }
 
-class facturer {
-    String name;
-    String address;
-    String telephone;
+    public void setFabricante(Facturer facturer) {
+        this._facturer = facturer;
+    }
+
 }
 
 class Eletronic extends Product {
-    String model;
+    private String _model;
+
+    public Eletronic(String name, double price, String description, int stock, Facturer facturer, String model) {
+        super(name, price, description, stock, facturer);
+        this._model = model;
+    }
+
+    public String getModel() {
+        return _model;
+    }
+
+    public void setModelo(String model) {
+        this._model = model;
+    }
 }
 
 class Clothing extends Product {
-    String size;
-    String color;
-    String material;
+    private String _size;
+    private String _color;
+    private String _material;
+
+    public Clothing(String name, double price, String description, int stock, Facturer facturer, String size, String color, String material) {
+        super(name, price, description, stock, facturer);
+        this._size = size;
+        this._color = color;
+        this._material = material;
+    }
+
+    public String getsize() {
+        return _size;
+    }
+
+    public void setsize(String size) {
+        this._size = size;
+    }
+
+    public String getcolor() {
+        return _color;
+    }
+
+    public void setcolor(String color) {
+        this._color = color;
+    }
+
+    public String getMaterial() {
+        return _material;
+    }
+
+    public void setMaterial(String material) {
+        this._material = material;
+    }
 }
 
 class Food extends Product {
-    DateFormat expiration_date;
-    String ingredients;
+    private LocalDate _expiration_date;
+    private String _ingredients;
+
+    public Food(String name, double price, String description, int stock, Facturer facturer, LocalDate dataValidade, String ingredients) {
+        super(name, price, description, stock, facturer);
+        this._expiration_date = dataValidade;
+        this._ingredients = ingredients;
+    }
+
+    public LocalDate getExpirationDate() {
+        return _expiration_date;
+    }
+
+    public void setExpirationDate(LocalDate date) {
+        this._expiration_date = date;
+    }
+
+    public String getIngredients() {
+        return _ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this._ingredients = ingredients;
+    }
+
 }
 
 class Drink extends Product {
-    DateFormat expiration_date;
-    String ingredients;
-    Boolean alcoholic;
-    Number volume;
+    private LocalDate _expiration_date;
+    private String _ingredients;
+    private boolean _alcoholic;
+    private double _volume;
+
+    public Drink(String name, double price, String description, int stock, Facturer facturer, boolean alcoholic, double volume) {
+        super(name, price, description, stock, facturer);
+        this._alcoholic = alcoholic;
+        this._volume = volume;
+    }
+
+    public LocalDate getExpirationDate() {
+        return _expiration_date;
+    }
+
+    public void setExpirationDate(LocalDate date) {
+        this._expiration_date = date;
+    }
+
+    public String getIngredients() {
+        return _ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this._ingredients = ingredients;
+    }
+
+    public boolean isAlcoholic() {
+        return _alcoholic;
+    }
+
+    public void setAlcoolico(boolean alcoholic) {
+        this._alcoholic = alcoholic;
+    }
+
+    public double getVolume() {
+        return _volume;
+    }
+
+    public void setVolume(double volume) {
+        this._volume = volume;
+    }
 }
 
 public class Main {
